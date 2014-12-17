@@ -7,8 +7,8 @@ package org.team1619;
  * floating around.
  */
 public class RobotMap {
-    public static final int rightStick_port = 0;                // ID for the right joystick port
-    public static final int leftStick_port = 1;                 // ID for the left joystick port
+    public static final int rightStick_port = 1;                // ID for the right joystick port
+    public static final int leftStick_port = 2;                 // ID for the left joystick port
     
     public static final int motorID_leftForeDrive = 12;          //
     public static final int motorID_leftRearDrive = 11;          //Drive motor IDs

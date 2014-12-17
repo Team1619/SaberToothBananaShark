@@ -27,21 +27,18 @@ public class DriveTrain extends Subsystem {
    
     private RobotDrive driveTrain; 
     
-    public DriveTrain() 
+    public DriveTrain() throws CANTimeoutException 
     {
-        try {
-            leftForeDrive = new CANJaguar(RobotMap.motorID_leftForeDrive);
-            leftRearDrive = new CANJaguar(RobotMap.motorID_leftRearDrive);
-            rightForeDrive = new CANJaguar(RobotMap.motorID_rightForeDrive);
-            rightRearDrive = new CANJaguar(RobotMap.motorID_rightRearDrive);
-        } catch (CANTimeoutException ex) {
-            ex.printStackTrace();
-        }
-        
+        leftForeDrive = new CANJaguar(RobotMap.motorID_leftForeDrive);
+        leftRearDrive = new CANJaguar(RobotMap.motorID_leftRearDrive);
+        rightForeDrive = new CANJaguar(RobotMap.motorID_rightForeDrive);
+        rightRearDrive = new CANJaguar(RobotMap.motorID_rightRearDrive);
+        System.out.println("Initialized Drive motors");
+
         driveTrain = new RobotDrive(leftForeDrive, leftRearDrive, rightForeDrive, rightRearDrive);
-        
-        driveTrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-        driveTrain.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+
+        //driveTrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+        //driveTrain.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
     }
     
     public void initDefaultCommand() {
@@ -53,7 +50,7 @@ public class DriveTrain extends Subsystem {
     
     public void drive(Joystick rightStick)
     {
-        driveTrain.arcadeDrive(rightStick);
+        driveTrain.arcadeDrive(rightStick.getY(), rightStick.getZ());
     }
     
     public void stop()
