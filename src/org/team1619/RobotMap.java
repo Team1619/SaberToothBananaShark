@@ -7,6 +7,15 @@ package org.team1619;
  * floating around.
  */
 public class RobotMap {
+    public static final int rightStick_port = 0;                // ID for the right joystick port
+    public static final int leftStick_port = 1;                 // ID for the left joystick port
+    
+    public static final int motorID_leftForeDrive = 12;          //
+    public static final int motorID_leftRearDrive = 11;          //Drive motor IDs
+    public static final int motorID_rightForeDrive = 13;          //
+    public static final int motorID_rightRearDrive = 14;          //
+    
+    public static final int motorID_chooChoo = 15;                 //ChooChoo motor ID        
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     // public static final int leftMotor = 1;
